@@ -12,3 +12,7 @@
 * ![vagrant.jpg](img%2Fvagrant.jpg)
 * ![terraform.jpg](img%2Fterraform.jpg)
 * ![ansible.jpg](img%2Fansible.jpg)
+
+Задача 4
+* ![docker_installing.jpg](img%2Fdocker_installing.jpg)
+* ![docker_installed.jpg](img%2Fdocker_installed.jpg)
