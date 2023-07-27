@@ -1,0 +1,9 @@
+[centos@node01 ~]$ sudo docker ps
+CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                    PORTS                                                                              NAMES
+454c598cae36   grafana/grafana:7.4.2              "/run.sh"                59 seconds ago   Up 37 seconds             3000/tcp                                                                           grafana
+e06f5bdf67fa   gcr.io/cadvisor/cadvisor:v0.47.0   "/usr/bin/cadvisor -…"   59 seconds ago   Up 36 seconds (healthy)   8080/tcp                                                                           cadvisor
+3bf3beaf8ee9   prom/prometheus:v2.17.1            "/bin/prometheus --c…"   59 seconds ago   Up 37 seconds             9090/tcp                                                                           prometheus
+972ae9fb8414   stefanprodan/caddy                 "/sbin/tini -- caddy…"   59 seconds ago   Up 36 seconds             0.0.0.0:3000->3000/tcp, 0.0.0.0:9090-9091->9090-9091/tcp, 0.0.0.0:9093->9093/tcp   caddy
+5db26d550d0a   prom/node-exporter:v0.18.1         "/bin/node_exporter …"   59 seconds ago   Up 36 seconds             9100/tcp                                                                           nodeexporter
+6c400e4c7a17   prom/pushgateway:v1.2.0            "/bin/pushgateway"       59 seconds ago   Up 37 seconds             9091/tcp                                                                           pushgateway
+7a7564d9121d   prom/alertmanager:v0.20.0          "/bin/alertmanager -…"   59 seconds ago   Up 36 seconds             9093/tcp                                                                           alertmanager
