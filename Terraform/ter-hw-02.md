@@ -20,3 +20,6 @@
 
 ## Задание 7*
 ![img.png](img/02/img_6.png)
+
+## Код
+[src](img%2F02%2Fsrc)
