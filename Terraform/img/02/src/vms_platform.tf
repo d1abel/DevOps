@@ -8,7 +8,10 @@ variable "vm_db_family" {
 variable "vm_db_platform" {
   type = map(string)
   default = {
-    name = "netology-develop-platform-db"
+    school = "netology"
+    level = "develop"
+    type = "platform"
+    name = "db"
     platform = "standard-v1"
   }
 }

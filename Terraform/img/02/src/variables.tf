@@ -55,7 +55,10 @@ variable "vm_web_family" {
 variable "vm_web_platform" {
   type = map(string)
   default = {
-    name = "netology-develop-platform-web"
+    school = "netology"
+    level = "develop"
+    type = "platform"
+    name = "web"
     platform = "standard-v1"
   }
 }
