@@ -27,8 +27,8 @@ resource "null_resource" "provision" {
   }
 
   triggers = {
-    always_run        = "${timestamp()}" #всегда т.к. дата и время постоянно изменяются
-    playbook_src_hash = file("${abspath(path.module)}/test.yml") # при изменении содержимого playbook файла
-    ssh_public_key    = local.ssh_key # при изменении переменной
+    always_run        = "${timestamp()}"
+    playbook_src_hash = file("${abspath(path.module)}/test.yml")
+    ssh_public_key    = local.ssh_key
   }
 }

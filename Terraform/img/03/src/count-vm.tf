@@ -4,7 +4,7 @@ data "yandex_compute_image" "ubuntu-2004-lts" {
 
 resource "yandex_compute_instance" "web" {
   count = 2
-  name = "web-${format("%d", count.index + 1)}"
+  name = "web-${format(count.index + 1)}"
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
