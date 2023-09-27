@@ -30,7 +30,7 @@ module "vpc_dev" {
 }
 ```
 
-Ответ: [code](04%2Fcode%2FTask2), [vpc_module](04%2Fcode%2FTask2%2Fvpc), [README.md](04%2Fcode%2FTask2%2Fvpc%2FREADME.md)
+Ответ: [code](04%2Fcode%2FTask2), [vpc_module](04%2Fcode%2FTask2%2Fvpc), [vpc_module_doc](04%2Fcode%2FTask2%2Fvpc%2FREADME.md)
 
 ![img_12.png](04%2Fimg%2Fimg_12.png)
 
@@ -92,7 +92,7 @@ module "vpc_dev" {
 3. Используя оба модуля, создайте кластер example из одного хоста, а затем добавьте в него БД test и пользователя app. Затем измените переменную и превратите сингл хост в кластер из 2-х серверов.
 4. Предоставьте план выполнения и по возможности результат. Сразу же удаляйте созданные ресурсы, так как кластер может стоить очень дорого. Используйте минимальную конфигурацию.
 
-Ответ: , [HA_true_plan.txt](img%2F04%2Fcode%2F04-db%2FHA_true_plan.txt), [HA_false_plan.txt](img%2F04%2Fcode%2F04-db%2FHA_false_plan.txt)
+Ответ: [code](04%2Fcode%2F04-db), [HA_true_plan.txt](04%2Fcode%2F04-db%2FHA_true_plan.txt), [HA_false_plan.txt](04%2Fcode%2F04-db%2FHA_false_plan.txt)
 
 <img alt="img_6.png" height="100" src="04%2Fimg%2Fimg_6.png"/>
 <img alt="img_7.png" height="100" src="04%2Fimg%2Fimg_7.png"/>
