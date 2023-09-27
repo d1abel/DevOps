@@ -1,0 +1,80 @@
+{
+  "version": 4,
+  "terraform_version": "1.5.3",
+  "serial": 9,
+  "lineage": "b03eb7b1-2fb4-f9c8-7763-bdd825f96a80",
+  "outputs": {
+    "vault_exmaple": {
+      "value": {
+        "test ": "congrats!"
+      },
+      "type": [
+        "map",
+        "string"
+      ]
+    },
+    "vault_exmaple2": {
+      "value": {
+        "foo": "bar"
+      },
+      "type": [
+        "map",
+        "string"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "vault_generic_secret",
+      "name": "vault_example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/vault\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "data": {
+              "test ": "congrats!"
+            },
+            "data_json": "{\"test \":\"congrats!\"}",
+            "id": "secret/example",
+            "lease_duration": 0,
+            "lease_id": "",
+            "lease_renewable": false,
+            "lease_start_time": "2023-09-27T08:53:57Z",
+            "namespace": null,
+            "path": "secret/example",
+            "version": -1,
+            "with_lease_start_time": true
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "vault_generic_secret",
+      "name": "vault_example2",
+      "provider": "provider[\"registry.terraform.io/hashicorp/vault\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "data": {
+              "foo": "bar"
+            },
+            "data_json": "{\"foo\":\"bar\"}",
+            "delete_all_versions": false,
+            "disable_read": false,
+            "id": "secret/example2",
+            "namespace": null,
+            "path": "secret/example2"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
