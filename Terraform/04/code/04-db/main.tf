@@ -25,6 +25,7 @@ resource "yandex_vpc_subnet" "subnet_a" {
   zone = "ru-central1-a"
 }
 
+# Раскоментить, если HA=true
 #resource "yandex_vpc_subnet" "subnet_b" {
 #  network_id     = yandex_vpc_network.network.id
 #  v4_cidr_blocks = ["10.0.1.0/24"]
@@ -43,6 +44,7 @@ module "mysql_cluster" {
   network_id = yandex_vpc_network.network.id
   HA = false
   subnet_a = yandex_vpc_subnet.subnet_a.id
+# Раскоментить, если HA=true
 #  subnet_b = yandex_vpc_subnet.subnet_b.id
 #  subnet_c = yandex_vpc_subnet.subnet_c.id
 }
