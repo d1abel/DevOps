@@ -38,7 +38,7 @@ resource "yandex_vpc_subnet" "subnet_a" {
 #}
 
 module "mysql_cluster" {
-  source = "./mdb_mysql"
+  source = "mdb_mysql"
   cluster_name = "example"
   network_id = yandex_vpc_network.network.id
   HA = false
@@ -48,7 +48,7 @@ module "mysql_cluster" {
 }
 
 module "mysql_db" {
-  source = "./mdb_mysql_db"
+  source = "mdb_mysql_db"
   cluster_id = module.mysql_cluster.cluster_id
   db_name = "test"
   db_user = "app"

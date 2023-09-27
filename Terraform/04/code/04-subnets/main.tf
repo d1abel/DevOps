@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 module "vpc" {
-  source = "./vpc_multisubs"
+  source = "vpc_multisubs"
 
   env_name = "production"
   net_name    = "prod"

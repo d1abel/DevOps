@@ -1,16 +1,16 @@
 ## Задание 1
-![img.png](img/02/img.png)
-![img.png](img/02/img_1.png)
+![img.png](02/img.png)
+![img.png](02/img_1.png)
 Ошибки: некорректная версия платформы, неправильно написано слово standard, некорректное количество ядер, минимум 2
 
 ## Задание 2
 Выполнено, terraform plan показал отсутствие изменений
 
 ## Задание 3
-![img_3.png](img/02/img_3.png)
+![img_3.png](02/img_3.png)
 
 ## Задание 4
-![img_4.png](img/02/img_4.png)
+![img_4.png](02/img_4.png)
 
 ## Задание 5
 Выполнено, terraform plan показал отсутствие изменений
@@ -19,7 +19,7 @@
 Выполнено, terraform plan показал отсутствие изменений
 
 ## Задание 7*
-![img.png](img/02/img_6.png)
+![img.png](02/img_6.png)
 
 ## Код
 [src](img%2F02%2Fsrc)

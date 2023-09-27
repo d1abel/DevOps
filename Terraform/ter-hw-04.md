@@ -6,7 +6,7 @@
 3. Добавьте в файл cloud-init.yml установку nginx.
 4. Предоставьте скриншот подключения к консоли и вывод команды ```sudo nginx -t```.
 
-![img.png](img/04/img.png)
+![img.png](04/img/img.png)
 ------
 
 ### Задание 2
@@ -29,9 +29,9 @@ module "vpc_dev" {
 }
 ```
 
-Ответ: [code](img%2F04%2Fcode%2FTask2%2Fmain.tf), [module](img%2F04%2Fcode%2FTask2%2F.terraform%2Fmodules%2Fvpc), [module_doc](img%2F04%2Fcode%2FTask2%2F.terraform%2Fmodules%2Fvpc%2FREADME.md)
+Ответ: [code](img%2F04%2Fcode%2FTask2), [vpc](img%2F04%2Fcode%2FTask2%2Fvpc), [module doc](img%2F04%2Fcode%2FTask2%2Fvpc%2FREADME.md)
 
-![img_12.png](img/04/img_12.png)
+![img_12.png](04/img/img_12.png)
 
 ------
 
@@ -81,7 +81,7 @@ module "vpc_dev" {
 
 Ответ: [code](img%2F04%2Fcode%2F04-subnets), [plan](img%2F04%2Fcode%2F04-subnets%2Fplan.txt)
 
-![img_11.png](img/04/img_11.png)
+![img_11.png](04/img/img_11.png)
 
 ------
 ### Задание 5*

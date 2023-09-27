@@ -11,7 +11,7 @@
 Ответ: группа создана
 [code](img%2F03%2Fsrc%2Fsecurity.tf)
 
-![img_1.png](img/03/img_1.png)
+![img_1.png](03/img_1.png)
 ------
 ### Задание 2
 
@@ -50,7 +50,7 @@
 
 [hosts.cfg](img%2F03%2Fsrc%2Fhosts.cfg)
 
-![img_2.png](img/03/img_2.png)
+![img_2.png](03/img_2.png)
 ------
 
 ### Задание 5* (необязательное)
@@ -74,7 +74,7 @@
 
 [outputs.tf](img%2F03%2Fsrc%2Foutputs.tf)
 
-![img_3.png](img/03/img_3.png)
+![img_3.png](03/img_3.png)
 ------
 ### Задание 6* (необязательное)
 
