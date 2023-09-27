@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 module "vpc_net" {
-  source = "./.terraform/modules/vpc"
+  source = "vpc"
   env_name = "develop"
   subnet_name = "develop"
   cidr4        = ["10.0.1.0/24"]
