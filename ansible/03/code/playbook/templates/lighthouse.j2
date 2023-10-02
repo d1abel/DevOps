@@ -1,0 +1,10 @@
+server {
+     listen 8888;
+
+     root {{ lighthouse_path }};
+     index index.html;
+
+     location / {
+        try_files $uri $uri/ =404;
+     }
+}
