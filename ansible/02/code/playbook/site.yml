@@ -38,6 +38,11 @@
 - name: Install Vector
   become: true
   hosts: clickhouse
+  handlers:
+  - name: Restart vector
+    ansible.builtin.service:
+      name: vector
+      state: restarted
   tasks:
     - name: Install Vector
       ansible.builtin.yum:
@@ -54,6 +59,7 @@
         path: /etc/default/vector
         line: "VECTOR_CONFIG={{ vector_config_file }}"
         state: present
+      notify: Restart vector
     - name: add vector user to systemd-journal group
       user:
         name: vector
