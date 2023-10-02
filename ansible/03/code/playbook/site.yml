@@ -37,7 +37,6 @@
       ansible.builtin.apt:
         deb: "https://packages.timber.io/vector/0.33.0/vector_0.33.0-1_amd64.deb"
         state: present
-#        disable_gpg_check: true
     - name: copy config
       ansible.builtin.template:
         src: "{{ vector_template }}"
