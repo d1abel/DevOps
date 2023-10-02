@@ -1,0 +1,66 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
+  tasks:
+    - block:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
+            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+          with_items: "{{ clickhouse_packages }}"
+      rescue:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+    - name: Install clickhouse packages
+      become: true
+      ansible.builtin.yum:
+        name:
+          - clickhouse-common-static-{{ clickhouse_version }}.rpm
+          - clickhouse-client-{{ clickhouse_version }}.rpm
+          - clickhouse-server-{{ clickhouse_version }}.rpm
+      notify: Start clickhouse service
+    - name: Flush handlers
+      meta: flush_handlers
+    - name: Create database
+      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc !=82
+      changed_when: create_db.rc == 0
+
+- name: Install Vector
+  become: true
+  hosts: clickhouse
+  tasks:
+    - name: Install Vector
+      ansible.builtin.yum:
+        name: "https://packages.timber.io/vector/0.33.0/vector-0.33.0-1.x86_64.rpm"
+        state: present
+        disable_gpg_check: true
+    - name: copy config
+      ansible.builtin.template:
+        src: "{{ vector_template }}"
+        dest: "{{ vector_config_file }}"
+        mode: 0644
+    - name: use the right config
+      lineinfile:
+        path: /etc/default/vector
+        line: "VECTOR_CONFIG={{ vector_config_file }}"
+        state: present
+    - name: add vector user to systemd-journal group
+      user:
+        name: vector
+        groups: systemd-journal
+        append: true
+    - name: start vector
+      service:
+        name: vector
+        state: restarted
+        enabled: true
