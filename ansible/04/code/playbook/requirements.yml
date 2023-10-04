@@ -5,6 +5,6 @@
 - src: https://github.com/d1abel/devops-homeworks-vector-role.git
   name: vector-role
   version: "0.0.1"
-- src: git@github.com:d1abel/devops-homeworks-lighthouse-role.git
+- src: https://github.com/d1abel/devops-homeworks-lighthouse-role.git
   name: lighthouse
   version: "0.0.1"
