@@ -1,0 +1,17 @@
+---
+- name: install nginx
+  become: true
+  apt:
+    name: nginx
+- name: get lighthouse from git
+  become: true
+  ansible.builtin.git:
+    repo: "https://github.com/VKCOM/lighthouse"
+    dest: "{{ lighthouse_path }}"
+- name: copy nginx config
+  become: true
+  template:
+    src: "lighthouse/templates/lighthouse.j2"
+    dest: "/etc/nginx/sites-enabled/lighthouse"
+    mode: 0644
+  notify: restart Nginx

@@ -1,0 +1,31 @@
+---
+- name: Install Vector
+  become: true
+  ansible.builtin.apt:
+    deb: "https://packages.timber.io/vector/0.33.0/vector_0.33.0-1_amd64.deb"
+    state: present
+- name: copy config
+  become: true
+  ansible.builtin.template:
+    src: "{{ vector_template }}"
+    dest: "{{ vector_config_file }}"
+    mode: 0644
+- name: use the right config
+  become: true
+  lineinfile:
+    path: /etc/default/vector
+    line: "VECTOR_CONFIG={{ vector_config_file }}"
+    state: present
+  notify: Restart vector
+- name: add vector user to systemd-journal group
+  become: true
+  user:
+    name: vector
+    groups: systemd-journal
+    append: true
+#- name: start vector
+#  become: true
+#  service:
+#    name: vector
+#    state: started
+#    enabled: true
