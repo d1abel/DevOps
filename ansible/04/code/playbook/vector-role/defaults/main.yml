@@ -1,1 +1,13 @@
 ---
+vector_data_dir: "/var/lib/vector"
+sources:
+  journald:
+    type: journald
+    current_boot_only: true
+transforms: {}
+sinks:
+  console:
+    type: console
+    encoding.codec: text
+    inputs:
+      - journald

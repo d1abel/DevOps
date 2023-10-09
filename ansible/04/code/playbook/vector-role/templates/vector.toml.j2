@@ -1,14 +1,23 @@
-# STDIO Example
-# ------------------------------------------------------------------------------
-# A simple STDIN / STDOUT example. This script is used in the getting started
-# guide:
-#
-# https://vector.dev/guides/getting-started
+data_dir = "{{ vector_data_dir }}"
 
-[sources.in]
-    type = "stdin"
+{% set loop_helper = {
+    "sources": (sources | default({})),
+    "transforms": (transforms | default({})),
+    "sinks": (sinks | default({}))
+} %}
 
-[sinks.out]
-    inputs = ["in"]
-    type = "console"
-    encoding.codec = "text"
+{% for name, cat in loop_helper.items() | sort(attribute='0') %}
+{% for key, value in cat.items() | sort(attribute='0') %}
+[{{ name }}.{{ key }}]
+  {% if value %}
+  {%- for skey, svalue in value.items() | sort(attribute='0') %}
+{%- if svalue is string %}
+  {{ skey }} = "{{ svalue }}"
+{% else %}
+  {{ skey }} = {{ svalue | tojson }}
+{% endif %}
+  {% endfor %}
+  {%- endif %}
+
+{% endfor %}
+{% endfor %}
